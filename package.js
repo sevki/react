@@ -17,7 +17,7 @@ Package._transitional_registerBuildPlugin({
     'plugin/compile-jsx.js'
   ],
   npmDependencies: {
-    'react-tools': '0.11.1'
+    'react-tools': '0.12.2'
   }
 });
 
@@ -30,7 +30,7 @@ Package.on_use(function (api) {
   api.use('meteorhacks:fast-render@1.0.0', ['client', 'server']);
   api.use('iron:dynamic-template@0.3.0', 'client');
 
-  api.add_files('react-with-addons-0.11.1.js', ['client', 'server']);
+  api.add_files('react-with-addons-0.12.2.js', ['client', 'server']);
 
   api.add_files('routecore-common.js', ['client', 'server']);
   api.add_files('context-client.js', 'client');
