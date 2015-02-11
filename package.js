@@ -1,7 +1,7 @@
 Package.describe({
     name: 'lee:react',
     summary: 'client and server side rendering/routing powered by React',
-    version: '0.1.0',
+    version: '0.1.1',
     git: 'https://github.com/leebenson/react.git'
 });
 
