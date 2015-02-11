@@ -1,9 +1,13 @@
 # React
 > This package is a fork of [https://github.com/mystor/meteor-routecore]. Please see the README there for implementation instructions - they're pretty much identical.
 
-This package makes the following changes again `meteor-routecore`:
+This package makes the following changes against `meteor-routecore`:
 
 * Harmony and sourcemap flags for the .jsx compiler (mostly to prevent the need for a re-write of any ES6 components.)
+
+* Deps.* features changed to Tracker.*
+
+* Replaced deprecated React.renderComponentToString and React.renderComponent functions.
 
 Dependencies updated:
 

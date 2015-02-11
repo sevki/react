@@ -1,7 +1,7 @@
 Package.describe({
     name: 'lee:react',
     summary: 'client and server side rendering/routing powered by React',
-    version: '0.1.3',
+    version: '0.1.4',
     git: 'https://github.com/leebenson/react.git'
 });
 
@@ -24,7 +24,7 @@ Package._transitional_registerBuildPlugin({
 Package.on_use(function(api) {
     api.versionsFrom('METEOR@1.0.3.1');
 
-    api.use(['deps', 'tmeasday:page-js-ie-support@1.3.5'], 'client');
+    api.use(['tracker', 'tmeasday:page-js-ie-support@1.3.5'], 'client');
     api.use('tmeasday:html5-history-api@4.1.2', 'client', {
         weak: true
     });

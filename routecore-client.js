@@ -5,7 +5,7 @@ var context = new RouteCore._PageContext();
 function _wrap(cb) {
     var self = this;
 
-    // We wrap the callback with a Deps.autorun and
+    // We wrap the callback with a Tracker.autorun and
     // React's render method.
     return function(ctx) {
         // Make the url field be avaliable on both the client and the server
@@ -14,10 +14,10 @@ function _wrap(cb) {
         if (self._computation)
             self._computation.stop();
 
-        // We want to rerun the renderComponent function every time
+        // We want to rerun the render function every time
         // that any dependencies update. Thanks to React's lightweight
         // virtual DOM, we can get away with this.
-        self._computation = Deps.autorun(function() {
+        self._computation = Tracker.autorun(function() {
             var component = cb.call(context, ctx);
 
             // We are done (redirect occured). We can just return now
@@ -37,7 +37,7 @@ function _wrap(cb) {
             //
             // Instead, you should use the RouteCore.ReactiveMixin mixin,
             // or create your React components with RouteCore.createClass()
-            Deps.nonreactive(function() {
+            Tracker.nonreactive(function() {
                 React.render(
                     component,
                     document.getElementById('-routecore-react-root')
