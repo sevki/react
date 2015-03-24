@@ -11,7 +11,7 @@ This package makes the following changes against `meteor-routecore`:
 
 Dependencies updated:
 
-* React@0.12.2
+* React@0.13.1
 * meteorhacks:fast-render@2.3.1
 * iron:dynamic-template@1.0.7
 

@@ -1,8 +1,8 @@
 Package.describe({
-    name: 'lee:react',
+    name: 'sevki:react',
     summary: 'client and server side rendering/routing powered by React',
-    version: '0.1.6',
-    git: 'https://github.com/leebenson/react.git'
+    version: '0.13.1',
+    git: 'https://github.com/sevki/react.git'
 });
 
 Npm.depends({
@@ -17,12 +17,12 @@ Package._transitional_registerBuildPlugin({
         'plugin/compile-jsx.js'
     ],
     npmDependencies: {
-        'react-tools': '0.12.2'
+        'react-tools': '0.13.1'
     }
 });
 
 Package.on_use(function(api) {
-    api.versionsFrom('METEOR@1.0.3.1');
+    api.versionsFrom('METEOR@1.0.4.1');
 
     api.use(['tracker', 'tmeasday:page-js-ie-support@1.3.5'], 'client');
     api.use('tmeasday:html5-history-api@4.1.2', 'client', {
@@ -32,7 +32,7 @@ Package.on_use(function(api) {
     api.use('meteorhacks:fast-render@2.3.1', ['client', 'server']);
     api.use('iron:dynamic-template@1.0.7', 'client');
 
-    api.add_files('react-with-addons-0.12.2.js', ['client', 'server']);
+    api.add_files('react-with-addons-0.13.1.js', ['client', 'server']);
 
     api.add_files('routecore-common.js', ['client', 'server']);
     api.add_files('context-client.js', 'client');

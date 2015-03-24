@@ -65,4 +65,3 @@ RouteCore._PageContext = PageContext;
 // ~~~ EXPORTS ~~~
 RouteCore.context = context;
 RouteCore.bindGlobals = bindGlobals;
-
