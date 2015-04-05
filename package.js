@@ -10,7 +10,7 @@ Npm.depends({
     'connect-route': '0.1.4'
 });
 
-Package._transitional_registerBuildPlugin({
+Package.registerBuildPlugin({
     name: 'compileJSX',
     use: [],
     sources: [
@@ -21,7 +21,7 @@ Package._transitional_registerBuildPlugin({
     }
 });
 
-Package.on_use(function(api) {
+Package.onUse(function(api) {
     api.versionsFrom('METEOR@1.0.4.1');
 
     api.use(['tracker', 'tmeasday:page-js-ie-support@1.3.5'], 'client');
@@ -32,18 +32,18 @@ Package.on_use(function(api) {
     api.use('meteorhacks:fast-render@2.3.1', ['client', 'server']);
     api.use('iron:dynamic-template@1.0.7', 'client');
 
-    api.add_files('react-with-addons-0.13.1.js', ['client', 'server']);
+    api.addFiles('react-with-addons-0.13.1.js', ['client', 'server']);
 
-    api.add_files('routecore-common.js', ['client', 'server']);
-    api.add_files('context-client.js', 'client');
-    api.add_files('context-server.js', 'server');
-    api.add_files('routecore-client.js', 'client');
-    api.add_files('routecore-server.js', 'server');
+    api.addFiles('routecore-common.js', ['client', 'server']);
+    api.addFiles('context-client.js', 'client');
+    api.addFiles('context-server.js', 'server');
+    api.addFiles('routecore-client.js', 'client');
+    api.addFiles('routecore-server.js', 'server');
 
-    api.add_files('blaze-component.js', ['client', 'server']);
-    api.add_files('reactivity.js', ['client', 'server']);
+    api.addFiles('blaze-component.js', ['client', 'server']);
+    api.addFiles('reactivity.js', ['client', 'server']);
 
-    api.add_files('body.html', ['client']);
+    api.addFiles('body.html', ['client']);
 
     // fast-render needs to be visible to the app, as the
     // inline javascript which fast-render pushes to the client
