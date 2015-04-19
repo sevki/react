@@ -1,7 +1,7 @@
 Package.describe({
     name: 'sevki:react',
     summary: 'client and server side rendering/routing powered by React',
-    version: '0.13.1',
+    version: '0.13.2-beta',
     git: 'https://github.com/sevki/react.git'
 });
 
@@ -48,7 +48,7 @@ Package.onUse(function(api) {
     // fast-render needs to be visible to the app, as the
     // inline javascript which fast-render pushes to the client
     // needs to interact with an exported value.
-    api.imply('meteorhacks:fast-render@2.3.1', ['client', 'server']);
+    api.imply('meteorhacks:fast-render@2.3.2', ['client', 'server']);
     api.export('RouteCore', ['client', 'server']);
     // api.export('React'); -- unnecessary (react mutates global obj)
 });

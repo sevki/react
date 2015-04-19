@@ -6,7 +6,7 @@ var rawCreateClass = React.createClass;
 function createClass(spec) {
     var render = spec.render;
 
-    // Add a mixin to the specification to manage the 
+    // Add a mixin to the specification to manage the
     // _computation over the lifecycle of the component.
     spec.mixins = spec.mixins || [];
     spec.mixins.push({
@@ -38,7 +38,7 @@ function createClass(spec) {
     });
 
     spec.render = function() {
-        // Forces the computation to recompute, and then 
+        // Forces the computation to recompute, and then
         // returns the stashed _renderedValue
 
         if (this._computation) {
@@ -68,4 +68,4 @@ function createClass(spec) {
 
 RouteCore.createClass = createClass;
 // XXX: Should React.createClass be overridden?
-React.createClass = createClass;
+//React.createClass = createClass;
