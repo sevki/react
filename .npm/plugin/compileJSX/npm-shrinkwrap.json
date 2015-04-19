@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "react-tools": {
-      "version": "0.13.1",
+      "version": "0.13.2",
       "dependencies": {
         "commoner": {
           "version": "0.10.1",
@@ -52,7 +52,7 @@
                   "version": "1.0.0",
                   "dependencies": {
                     "lru-cache": {
-                      "version": "2.5.0"
+                      "version": "2.6.1"
                     },
                     "sigmund": {
                       "version": "1.0.0"
@@ -84,7 +84,7 @@
               "version": "0.1.8"
             },
             "iconv-lite": {
-              "version": "0.4.7"
+              "version": "0.4.8"
             }
           }
         },
