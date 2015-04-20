@@ -1,7 +1,7 @@
 Package.describe({
     name: 'sevki:react',
     summary: 'client and server side rendering/routing powered by React',
-    version: '0.13.2-beta2',
+    version: '0.13.2-rc1',
     git: 'https://github.com/sevki/react.git'
 });
 
