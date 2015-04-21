@@ -5,9 +5,10 @@ var PageContext = (function() {
 
     function PageContext() {
         this.finished = false;
+        this.subArgs = [];
     }
     PageContext.prototype.waitOn = function() {
-        this.subArg = arguments;
+        this.subArgs.push(arguments)
     }
     PageContext.prototype.subscribe = function() {
         return Meteor.subscribe.apply(Meteor, arguments);;

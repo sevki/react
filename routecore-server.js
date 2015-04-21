@@ -8,7 +8,7 @@ var connect = Npm.require('connect'),
         router = r;
     });
 
-function _wrap(cb) {
+function _wrap(cb, waitOn) {
     var self = this;
 
     return function(req, res, next) {
@@ -22,6 +22,9 @@ function _wrap(cb) {
                 context: context
             }, function() {
                 try {
+                    if (typeof waitOn !=='undefined') {
+                        waitOn(this.context);
+                    }
                     // Run the request
                     var component = cb.call(context, req);
 
@@ -42,8 +45,7 @@ function _wrap(cb) {
 
                     // Save the query data
                     // TODO: Make this merge with queryData potentially already in req
-                    console.log(context._frContext)
-                    res.pushData("fast-render-data", context._frContext.getData());
+                    res.pushData("slow-render-data", context._frContext.getData());
                     if (res.queryData)
                         res.queryData.serverRoutePath = req.url;
 
@@ -87,8 +89,8 @@ http.OutgoingMessage.prototype.write = function(chunk, encoding) {
     originalWrite.call(this, chunk, encoding);
 };
 
-function rawRoute(path, cb) {
-    router.get(path, _wrap.call(this, cb));
+function rawRoute(path, cb, waitOn) {
+    router.get(path, _wrap.call(this, cb, waitOn));
 }
 
 // Attach our middleware to the Meteor pipeline

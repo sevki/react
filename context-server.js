@@ -114,7 +114,7 @@ function bindGlobals() {
     global.Meteor = global.Meteor || {};
     global.Session = global.Session || {};
 
-    global.Meteor.subscribe = callOnContext('subscribe');
+    //global.Meteor.subscribe = callOnContext('subscribe');
     global.Meteor.loggingIn = callOnContext('loggingIn');
 
     global.Session.get = callOnContext('get');

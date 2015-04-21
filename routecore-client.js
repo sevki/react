@@ -2,7 +2,7 @@
 // This makes sense, as the entire environment is one page
 var context = new RouteCore._PageContext();
 
-function _wrap(cb) {
+function _wrap(cb, waitOn) {
     var self = this;
 
     // We wrap the callback with a Tracker.autorun and
@@ -11,31 +11,28 @@ function _wrap(cb) {
         // Make the url field be avaliable on both the client and the server
         ctx.url = ctx.path;
 
+        var wait = false;
+        var sub = null;
+        if (typeof waitOn !=='undefined') {
+            sub =waitOn(ctx);
+            wait = true;
+        }
+
 
         if (self._computation)
             self._computation.stop();
-
-        // waitOn
-        var shouldWait = false;
-        var sub = null;
-        if (typeof context.subArg !== 'undefined') {
-            sub =  Meteor.subscribe.apply(Meteor, context.subArg);
-            shouldWait = true;
-        }
-
 
         // We want to rerun the render function every time
         // that any dependencies update. Thanks to React's lightweight
         // virtual DOM, we can get away with this.
         self._computation = Tracker.autorun(function() {
-
-            // This should theoretically mimmic ironRouter waitOn
-            if (shouldWait) {
-                if (!sub.ready()) {
+            if (wait) {
+                if (!sub.ready) {
+                    console.log("NOT READY")
                     return;
                 }
+                console.log("READY")
             }
-
             var component = cb.call(context, ctx);
 
             // We are done (redirect occured). We can just return now
@@ -65,8 +62,8 @@ function _wrap(cb) {
     }
 }
 
-function rawRoute(path, cb) {
-    page(path, _wrap.call(this, cb));
+function rawRoute(path, cb, waitOn) {
+        page(path, _wrap.call(this, cb, waitOn));
 }
 
 // Attach event listeners to the dom
