@@ -23,7 +23,7 @@ function _wrap(cb, waitOn) {
             }, function() {
                 try {
                     if (typeof waitOn !=='undefined') {
-                        waitOn(this.context);
+                        waitOn.call(context, req);
                     }
                     // Run the request
                     var component = cb.call(context, req);

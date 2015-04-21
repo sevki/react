@@ -14,7 +14,7 @@ function _wrap(cb, waitOn) {
         var wait = false;
         var sub = null;
         if (typeof waitOn !=='undefined') {
-            sub =waitOn(ctx);
+            sub = waitOn.call(context, ctx);
             wait = true;
         }
 
