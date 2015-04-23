@@ -19,22 +19,18 @@ function _wrap(cb, waitOn) {
         }
 
 
-        if (self._computation)
-            self._computation.stop();
 
         // We want to rerun the render function every time
         // that any dependencies update. Thanks to React's lightweight
         // virtual DOM, we can get away with this.
         self._computation = Tracker.autorun(function() {
             if (wait) {
-                if (!sub.ready) {
-                    console.log("NOT READY")
+                if (!sub.ready()) {
                     return;
                 }
-                console.log("READY")
             }
-            var component = cb.call(context, ctx);
 
+            var component = cb.call(context, ctx);
             // We are done (redirect occured). We can just return now
             if (context.finished)
                 return;

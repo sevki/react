@@ -7,11 +7,8 @@ var PageContext = (function() {
         this.finished = false;
         this.subArgs = [];
     }
-    PageContext.prototype.waitOn = function() {
-        this.subArgs.push(arguments)
-    }
     PageContext.prototype.subscribe = function() {
-        return Meteor.subscribe.apply(Meteor, arguments);;
+        return Meteor.subscribe.apply(Meteor, arguments);
     }
 
     PageContext.prototype.set = function() {

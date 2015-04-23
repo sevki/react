@@ -21,9 +21,7 @@ var PageContext = (function() {
             stop: function() {}
         };
     };
-    PageContext.prototype.waitOn = function() {
-        this._frContext.subscribe.apply(this._frContext, arguments);
-    };
+
     // We want to allow the session object to be accessed and manipulated
     // on the server, so we implement a non-reactive version of session.
     // We don't send this data to the server (like fast-render), because
