@@ -11,6 +11,11 @@ function _wrap(cb, waitOn) {
         // Make the url field be avaliable on both the client and the server
         ctx.url = ctx.path;
 
+        NProgress.start();
+
+        if (self._computation)
+                    self._computation.stop();
+
         var wait = false;
         var sub = null;
         if (typeof waitOn !=='undefined') {
@@ -53,6 +58,7 @@ function _wrap(cb, waitOn) {
                     component,
                     document.getElementById('-routecore-react-root')
                 );
+                NProgress.done()
             });
         });
     }
