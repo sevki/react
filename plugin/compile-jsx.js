@@ -7,8 +7,14 @@ var handler = function (compileStep) {
     compileStep.addJavaScript({
         path: outputFile,
         sourcePath: compileStep.inputPath,
-        data: reactTools.transform(source, {harmony: true, sourceMap: true})
-    });
+        data: reactTools.transform(source,
+            {
+                harmony: true,
+                sourceMap: true,
+                stripTypes: true
+            })
+        }
+    );
 };
 
 Plugin.registerSourceHandler('jsx', handler);

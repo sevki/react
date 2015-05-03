@@ -14,7 +14,7 @@ function _wrap(cb, waitOn) {
         NProgress.start();
 
         if (self._computation)
-                    self._computation.stop();
+                self._computation.stop();
 
         var wait = false;
         var sub = null;
